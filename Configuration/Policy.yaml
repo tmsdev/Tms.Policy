@@ -1,0 +1,22 @@
+privilegeTargets:
+  Neos\ContentRepository\Security\Authorization\Privilege\Node\CreateNodePrivilege:
+    'Tms.Policy:Mixin.Privilege.CreateNode':
+      matcher: 'createdNodeIsOfType("Tms.Policy:Mixin.Privilege.CreateNode")'
+
+  Neos\ContentRepository\Security\Authorization\Privilege\Node\EditNodePrivilege:
+    'Tms.Policy:Mixin.Privilege.EditNode':
+      matcher: 'nodeIsOfType("Tms.Policy:Mixin.Privilege.EditNode")'
+
+  Neos\ContentRepository\Security\Authorization\Privilege\Node\RemoveNodePrivilege:
+    'Tms.Policy:Mixin.Privilege.RemoveNode':
+      matcher: 'nodeIsOfType("Tms.Policy:Mixin.Privilege.RemoveNode")'
+
+roles:
+  'Neos.Neos:Administrator':
+    privileges:
+      - privilegeTarget: 'Tms.Policy:Mixin.Privilege.CreateNode'
+        permission: GRANT
+      - privilegeTarget: 'Tms.Policy:Mixin.Privilege.EditNode'
+        permission: GRANT
+      - privilegeTarget: 'Tms.Policy:Mixin.Privilege.RemoveNode'
+        permission: GRANT
